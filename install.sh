@@ -1,5 +1,7 @@
 #!/bin/bash
 
+[[ -d ~/.nano ]] || curl https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh | sh -s -- -l
+
 [[ -d ~/.config/bat ]] || mkdir ~/.config/bat
 
 ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf

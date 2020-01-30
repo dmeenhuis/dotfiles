@@ -102,6 +102,7 @@ COMPLETION_WAITING_DOTS="true"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias kx="kubectx"
 
 DEFAULT_USER=`whoami`
 
