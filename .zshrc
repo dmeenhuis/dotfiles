@@ -113,12 +113,15 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:~/.local/bin
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
+# fnm
+export PATH="/home/dmeenhuis/.fnm/current/bin:$PATH"
+eval `fnm env --multi`
+
 #[ -s "$ZSH/custom/plugins/kubetail/completion/kubetail.bash" ] && source "$ZSH/custom/plugins/kubetail/completion/kubetail.bash"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/terraform terraform
+complete -o nospace -C /usr/bin/terraform terraform
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
