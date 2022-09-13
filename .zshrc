@@ -103,19 +103,43 @@ COMPLETION_WAITING_DOTS="true"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias kx="kubectx"
+alias dwr="dotnet watch run"
+alias ddwr="ASPNETCORE_ENVIRONMENT=Development dotnet watch run"
+alias dt="dotnet test"
+alias dwt="dotnet watch test"
+alias ls='lsd'
+alias cat='bat'
+alias du='dust -r'
+
+function dtf() {
+  dotnet test --filter "DisplayName~$1"
+}
+
+function dtfw() {
+  dotnet watch test --filter "DisplayName~$1"
+}
 
 DEFAULT_USER=`whoami`
 
 source ~/dotfiles/secret-keys.sh
+source ~/dotfiles/dhl.sh
 
 export GOPATH=$(go env GOPATH)
+export ANDROID_HOME=/home/dmeenhuis/Android/Sdk
+export ANDROID_SDK_ROOT=/home/dmeenhuis/Android/Sdk
+
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:~/.local/bin
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH="$PATH:/home/dmeenhuis/.dotnet/tools"
+export PATH="$PATH:$ANDROID_HOME/emulator"
+export PATH="$PATH:$ANDROID_HOME/tools"
+export PATH="$PATH:$ANDROID_HOME/tools/bin"
+export PATH="$PATH:$ANDROID_HOME/platform-tools"
 
 # fnm
 export PATH="/home/dmeenhuis/.fnm/current/bin:$PATH"
-eval `fnm env --multi`
+eval `fnm env`
 
 #[ -s "$ZSH/custom/plugins/kubetail/completion/kubetail.bash" ] && source "$ZSH/custom/plugins/kubetail/completion/kubetail.bash"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -125,3 +149,5 @@ complete -o nospace -C /usr/bin/terraform terraform
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+eval $(thefuck --alias)

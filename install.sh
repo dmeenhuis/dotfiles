@@ -9,3 +9,6 @@ ln -sf ~/dotfiles/.zshrc ~/.zshrc
 ln -sf ~/dotfiles/.p10k.zsh ~/.p10k.zsh
 ln -sf ~/dotfiles/terminator/config ~/.config/terminator/config
 ln -sf ~/dotfiles/bat/config ~/.config/bat/config
+
+systemctl enable systemd-resolved.service
+systemctl start systemd-resolved.service
